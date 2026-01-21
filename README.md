@@ -1,134 +1,71 @@
-# RESTASSURED-FOR-STUDIES
+# Automação de API - JSONPlaceholder
 
-![QA CI/CD](https://github.com/uLucasFraga/restassured_for_studies/workflows/QA%20CI/CD/badge.svg)
-[![ServeRest API](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/PauloGoncalvesBH/ServeRest/)
+Repositório com automação de testes de API usando o framework: Restassured e JUnit
 
-Repository with automated tests for API using the frameworks: restassured and junit
-
-> Testing and validating REST services in Java with [RESTASSURED:](https://github.com/rest-assured/rest-assured)
+> Testando e validando serviços REST em Java com 
+> https://jsonplaceholder.typicode.com/
 
 ---
 
-## Table of Contents
+## Índice
 
-> Índice `README`.
-
-- [Prerequisites](#prerequisites)
-- [Configuration](#configuration)
-- [Installation](#installation)
-- [How to tests](#how-to-test)
-- [Support](#support)
+- Pré-requisitos
+- Configuração
+- Instalação
+- Como testar
+- Suporte
 
 ---
 
-## Prerequisites
+## Pré-requisitos
 
-- [Install JDK 8+](https://www.oracle.com/java/technologies/javase-downloads.html)
-- [Install Maven](https://maven.apache.org/install.html)
-- [Install IntelliJ or another IDE](https://www.jetbrains.com/idea/download/)
-- [Starting with RestAssured](https://github.com/rest-assured/rest-assured/wiki/GettingStarted)
+- [Instalar JDK 17](https://www.oracle.com/java/technologies/downloads/)
+- [Instalar Maven 3.8+](https://maven.apache.org/install.html)
+- [Instalar IntelliJ ou outra IDE](https://www.jetbrains.com/idea/download/)
 
-## Configuration
+## Configuração de pré-requisitos
 
-> environment variables and bash_profile - example:
+> Certifique-se de que as seguintes ferramentas estejam instaladas e configuradas em sua máquina.
 
-###### java: `export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home`
 
-###### maven: `export PATH=/opt/apache-maven-3.5.3/bin:$PATH`
+### java: Verifique se o Java está disponível no terminal:
+```bash
+java -version
 
-##### Install Java
-- Mac, Windows and Linux: https://www.liquidweb.com/kb/how-to-install-java-on-ubuntu-windows-and-macos
+- Caso necessário, configure a variável de ambiente.
 
-##### Install Maven
-- Mac, Windows and Linux: https://www.baeldung.com/install-maven-on-windows-linux-mac
 
-Create a _maven_ project or use the _pom.xml_ file already created to download/install its dependencies
+### maven: Verifique se o Maven está disponível no terminal:
+```bash
+mvn -version
 
-## Installation
 
-> Clone project
+### Instalação do Java (Windows, linux e macOS)
+- https://www.liquidweb.com/kb/how-to-install-java-on-ubuntu-windows-and-macos
 
-- Clone this repo to your local machine using http or ssh, for example:
 
-`git clone https://github.com/uLucasFraga/restassured_for_studies.git`
+### Instalação do Maven (Windows, linux e macOS)
+- https://www.baeldung.com/install-maven-on-windows-linux-mac
 
-- Install all dependencies (pom.xml) mvn install and run tests:
+Todas as dependências estão declaradas no arquivo pom.xml e serão baixadas
+automaticamente ao executar os comandos Maven.
 
-`cd /your_project`
+## Instalação:
 
-`mvn install`
+> Clonar o projeto
 
-![Download dependencies via Maven](http://g.recordit.co/vCNaZgadVu.gif)
+- Clone este repositório para sua máquina local utilizando HTTPS ou SSH:
 
-> Tips
+`git clone https://github.com/douglastavares2702/jsonplaceholder-api-tests.git`
 
-- Use pom.xml to download your new libs and keep the project running via terminal
+>Em seguida, acesse a pasta do projeto:
 
-## How to tests
+`cd jsonplaceholder-api-tests`
 
-Before running the tests we will need:
+> Para testar:
+- mvn clean test
 
-- Create a `config.properties` file inside the *resources folder* and insert valid values
-- For example: `config.properties.example`
+## Suporte
 
-The valid values are below:
-
-##### example_values:
-```
-APP_URL=http://localhost:3000
-EMAIL_ADMIN=fulano@qa.com
-EMAIL_USER=lucas.fraga@qa.com
-EMAIL_INVALID=invalid
-PASSWORD_INVALID=passinvalid
-PASSWORD_ADMIN=teste
-PASSWORD_USER=teste@123
-```
-###### NOTE:
-This data is exposed but as a good practice (security of sensitive data) it would be interesting not to upload (via .gitignore) the file `config.properties` to the project.
-
-> Run all integration tests
-
-`mvn -Dtest=AllIntegrationIT tests `
-
-> Run all contract tests
-
-`mvn -Dtest=AllContractIT tests `
-
-> Run a single tests
-
-`mvn -Dtest={your_class}#{your_test} tests`
-
-> To clean the project, install the dependencies and skip all tests
-
-`mvn clean install -DskipUTs=true -DskipITs=true`
-
-> To run the tests via IDE (IntelliJ)
-
-Right click on project/class on **restassured_for_studies > Run 'AllIT'** or **CTRL+F5**
-
-###### IMPORTANT:
-As the repository is **only for studies**,
-
-the tests only pass with the serverest (empty/clean),
-
-if there is new data, the tests will break.
-
----
-
-## Support
-
-- Twitter at <a href="https://twitter.com/uLucasFraga" target="_blank">`@ulucasfraga`</a>
-- Facebook at <a href="https://www.facebook.com/lucass.fragaa" target="_blank">`my_facebook`</a>
-- Linkedin at <a href="https://www.linkedin.com/in/ulucasfraga" target="_blank">`my_linkedin`</a>
-
-- E-mail: `lucass.fragaa@gmail.com`
-- Skype: `live:lucass.fragaa`
-
----
-
-## License
-
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2026 © <a href="https://www.linkedin.com/in/ulucasfraga" target="_blank">Lucas Fraga</a>.
+- Linkedin: https://www.linkedin.com/in/douglas-tavares-02127567/ 
+- E-mail: `datg2702@hotmail.com`
