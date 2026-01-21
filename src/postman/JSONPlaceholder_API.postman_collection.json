@@ -1,0 +1,482 @@
+{
+  "info": {
+    "_postman_id": "1e7cc09f-5a15-452a-a6fe-d0a2959e4053",
+    "name": "JSONPlaceholder_API",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51675405",
+    "_collection_link": "https://go.postman.co/collection/51675405-1e7cc09f-5a15-452a-a6fe-d0a2959e4053?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Positivos",
+      "item": [
+        {
+          "name": "/posts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Retorno deve conter 100 posts\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    const dados = pm.response.json();",
+                  "    pm.expect(dados).to.be.an(\"array\").with.lengthOf(100);",
+                  "});",
+                  "",
+                  "pm.test(\"Cada post deve ter 'userId', 'id', 'title' e 'body'\", function () {",
+                  "    const dados = pm.response.json();",
+                  "    dados.forEach(post => {",
+                  "        pm.expect(post).to.have.property(\"userId\");",
+                  "        pm.expect(post).to.have.property(\"id\");",
+                  "        pm.expect(post).to.have.property(\"title\");",
+                  "        pm.expect(post).to.have.property(\"body\");",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}{{post}}",
+              "host": [
+                "{{baseUrl}}{{post}}"
+              ]
+            },
+            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+          },
+          "response": []
+        },
+        {
+          "name": "/posts add user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": 2,\r\n  \"title\": \"Criado para teste\",\r\n  \"body\": \"Este post foi criado para teste\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}{{post}}",
+              "host": [
+                "{{baseUrl}}{{post}}"
+              ]
+            },
+            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+          },
+          "response": []
+        },
+        {
+          "name": "/posts/{id}",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Validar que o título pertence ao ID 1\", function () {",
+                  "    pm.expect(pm.response.code).to.equal(200);",
+                  "    const post = pm.response.json();",
+                  "",
+                  "    pm.expect(post).to.be.an(\"object\");",
+                  "    pm.expect(post.id).to.equal(1);",
+                  "    pm.expect(post.title).to.equal(\"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\");",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}{{id_1}}",
+              "host": [
+                "{{baseUrl}}{{id_1}}"
+              ]
+            },
+            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+          },
+          "response": []
+        },
+        {
+          "name": "/users",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code é 200 e validar usuário 10\", function () {",
+                  "    pm.expect(pm.response.code).to.equal(200);",
+                  "    ",
+                  "    const user = pm.response.json();",
+                  "    pm.expect(user).to.be.an(\"object\");",
+                  "    pm.expect(user.id).to.equal(10);",
+                  "    pm.expect(user.username).to.equal(\"Moriah.Stanton\");",
+                  "});",
+                  "",
+                  "const schema = {",
+                  "    type: \"object\",",
+                  "    required: [\"id\", \"name\", \"username\", \"email\", \"address\", \"phone\", \"website\", \"company\"],",
+                  "    properties: {",
+                  "        id: { type: \"number\" },",
+                  "        name: { type: \"string\" },",
+                  "        username: { type: \"string\" },",
+                  "        email: { type: \"string\" },",
+                  "        address: {",
+                  "            type: \"object\",",
+                  "            required: [\"street\", \"suite\", \"city\", \"zipcode\", \"geo\"],",
+                  "            properties: {",
+                  "                street: { type: \"string\" },",
+                  "                suite: { type: \"string\" },",
+                  "                city: { type: \"string\" },",
+                  "                zipcode: { type: \"string\" },",
+                  "                geo: {",
+                  "                    type: \"object\",",
+                  "                    required: [\"lat\", \"lng\"],",
+                  "                    properties: {",
+                  "                        lat: { type: \"string\" },",
+                  "                        lng: { type: \"string\" }",
+                  "                    }",
+                  "                }",
+                  "            }",
+                  "        },",
+                  "        phone: { type: \"string\" },",
+                  "        website: { type: \"string\" },",
+                  "        company: {",
+                  "            type: \"object\",",
+                  "            required: [\"name\", \"catchPhrase\", \"bs\"],",
+                  "            properties: {",
+                  "                name: { type: \"string\" },",
+                  "                catchPhrase: { type: \"string\" },",
+                  "                bs: { type: \"string\" }",
+                  "            }",
+                  "        }",
+                  "    }",
+                  "};",
+                  "",
+                  "pm.test(\"Validar contrato JSON completo do usuário\", function () {",
+                  "    const user = pm.response.json();",
+                  "    pm.expect(tv4.validate(user, schema)).to.be.true;",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}{{users}}",
+              "host": [
+                "{{baseUrl}}{{users}}"
+              ]
+            },
+            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+          },
+          "response": []
+        },
+        {
+          "name": "/posts/{id} update title",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Título editado para teste\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}{{id_100}}",
+              "host": [
+                "{{baseUrl}}{{id_100}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Negativos",
+      "item": [
+        {
+          "name": "/posts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Retorno deve conter 150 posts\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    const dados = pm.response.json();",
+                  "    pm.expect(dados).to.be.an(\"array\").with.lengthOf(150);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}{{post}}",
+              "host": [
+                "{{baseUrl}}{{post}}"
+              ]
+            },
+            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+          },
+          "response": []
+        },
+        {
+          "name": "/posts/{id}",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"O campo 'title' não deveria existir no post id 1\", function () {",
+                  "    const post = pm.response.json();",
+                  "    pm.expect(post).to.not.have.property(\"title\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}{{id_1}}",
+              "host": [
+                "{{baseUrl}}{{id_1}}"
+              ]
+            },
+            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+          },
+          "response": []
+        },
+        {
+          "name": "/users",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code é 200 e e-mail está incorreto\", function () {",
+                  "    pm.expect(pm.response.code).to.equal(200);",
+                  "    ",
+                  "    const user = pm.response.json();",
+                  "    pm.expect(user).to.be.an(\"object\");",
+                  "    pm.expect(user.id).to.equal(\"10\");",
+                  "    pm.expect(user.email).to.not.equal(\"datg2702@hotmail.com\");",
+                  "    pm.expect(user.username).to.equal(\"Moriah.Stanton\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}{{users}}",
+              "host": [
+                "{{baseUrl}}{{users}}"
+              ]
+            },
+            "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
