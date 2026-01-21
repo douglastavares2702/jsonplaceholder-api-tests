@@ -28,21 +28,18 @@ Repositório com automação de testes de API usando o framework: Restassured e 
 > Certifique-se de que as seguintes ferramentas estejam instaladas e configuradas em sua máquina.
 
 
-### java: Verifique se o Java está disponível no terminal:
+### Java: Verifique se o Java está disponível no terminal:
 ```bash
 java -version
 
 - Caso necessário, configure a variável de ambiente.
 
-
-### maven: Verifique se o Maven está disponível no terminal:
+### Maven: Verifique se o Maven está disponível no terminal:
 ```bash
 mvn -version
 
-
 ### Instalação do Java (Windows, linux e macOS)
 - https://www.liquidweb.com/kb/how-to-install-java-on-ubuntu-windows-and-macos
-
 
 ### Instalação do Maven (Windows, linux e macOS)
 - https://www.baeldung.com/install-maven-on-windows-linux-mac
