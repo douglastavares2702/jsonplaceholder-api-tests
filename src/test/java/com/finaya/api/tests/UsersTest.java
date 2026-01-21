@@ -9,29 +9,29 @@ import static org.hamcrest.Matchers.*;
 public class UsersTest extends BaseTest {
 
     @Test
-    void shouldReturnListOfUsers() {
+    void deveRetornarListaDeUsuarios() {
         given()
                 .when()
                 .get("/users")
                 .then()
                 .statusCode(200)
-                .body("$", hasSize(10)) // a API tem 10 usuários
-                .body("[0].id", notNullValue())
-                .body("[0].name", notNullValue())
-                .body("[0].username", notNullValue())
-                .body("[0].email", notNullValue());
+                .body("$", hasSize(10))
+                .body("id", notNullValue())
+                .body("name", notNullValue())
+                .body("username", notNullValue())
+                .body("email", notNullValue());
     }
 
     @Test
-    void shouldReturnUserById() {
+    void deveRetornarUsarioComId1CamposCorretos() {
         given()
                 .when()
                 .get("/users/1")
                 .then()
                 .statusCode(200)
                 .body("id", equalTo(1))
-                .body("name", notNullValue())
-                .body("username", notNullValue())
-                .body("email", notNullValue());
-    }
+                .body("name", equalTo("Leanne Graham"))
+                .body("email", equalTo("Sincere@april.biz"))
+                .body("address.zipcode", equalTo("92998-3874"));
+        }
 }

@@ -62,6 +62,9 @@ automaticamente ao executar os comandos Maven.
 > Para testar:
 - mvn clean test
 
+## Relatórios de Teste
+target/surefire-reports/
+
 ## Suporte
 
 - Linkedin: https://www.linkedin.com/in/douglas-tavares-02127567/ 
