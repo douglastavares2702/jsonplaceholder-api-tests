@@ -1,12 +1,32 @@
 package com.finaya.api.tests;
 
+import com.finaya.api.model.Post;
 import com.finaya.api.base.BaseTest;
+
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
 public class PostsTest extends BaseTest {
+
+    @Test
+    void deveRetornarPostUsandoPOJO() {
+
+        Post post = given()
+                .when()
+                .get("/posts/1")
+                .then()
+                .statusCode(200)
+                .extract()
+                .as(Post.class);
+
+        assertEquals(1, post.getId());
+        assertNotNull(post.getUserId());
+        assertNotNull(post.getTitle());
+        assertNotNull(post.getBody());
+    }
 
     @Test
     void deveRetornarCamposPreenchidos() {
@@ -43,4 +63,13 @@ public class PostsTest extends BaseTest {
                 .statusCode(200)
                 .body("$", hasSize(100));
         }
+
+    @Test
+    void deveRetornar404QuandoPostNaoExisitir() {
+        given()
+                .when()
+                .get("/posts/150")
+                .then()
+                .statusCode(404);
+    }
 }
