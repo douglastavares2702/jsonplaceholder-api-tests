@@ -71,9 +71,12 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}{{post}}",
+              "raw": "{{baseUrl}}/posts",
               "host": [
-                "{{baseUrl}}{{post}}"
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts"
               ]
             },
             "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -126,9 +129,12 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}{{post}}",
+              "raw": "{{baseUrl}}/posts",
               "host": [
-                "{{baseUrl}}{{post}}"
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts"
               ]
             },
             "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -179,9 +185,13 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}{{id_1}}",
+              "raw": "{{baseUrl}}/posts/1",
               "host": [
-                "{{baseUrl}}{{id_1}}"
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "1"
               ]
             },
             "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -276,9 +286,13 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}{{users}}",
+              "raw": "{{baseUrl}}/users/10",
               "host": [
-                "{{baseUrl}}{{users}}"
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "10"
               ]
             },
             "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -300,9 +314,13 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}{{id_100}}",
+              "raw": "{{baseUrl}}/posts/100",
               "host": [
-                "{{baseUrl}}{{id_100}}"
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "100"
               ]
             }
           },
@@ -320,10 +338,11 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test(\"Retorno deve conter 150 posts\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "    const dados = pm.response.json();",
-                  "    pm.expect(dados).to.be.an(\"array\").with.lengthOf(150);",
+                  "pm.test(\"Buscar post inexistente deve retornar 404\", function () {",
+                  "    pm.expect(pm.response.code).to.equal(404);",
+                  "    const body = pm.response.json();",
+                  "    pm.expect(body).to.be.an(\"object\");",
+                  "    pm.expect(Object.keys(body).length).to.equal(0);",
                   "});",
                   ""
                 ],
@@ -364,9 +383,13 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}{{post}}",
+              "raw": "{{baseUrl}}/posts/150",
               "host": [
-                "{{baseUrl}}{{post}}"
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "150"
               ]
             },
             "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -380,11 +403,15 @@
               "listen": "test",
               "script": {
                 "exec": [
+                  "pm.test(\"O campo 'categoria' não deveria existir no post id 1\", function () {",
+                  "    const post = pm.response.json();",
+                  "    pm.expect(post).to.not.have.property(\"categoria\");",
+                  "});",
+                  "",
                   "pm.test(\"O campo 'title' não deveria existir no post id 1\", function () {",
                   "    const post = pm.response.json();",
                   "    pm.expect(post).to.not.have.property(\"title\");",
-                  "});",
-                  ""
+                  "});"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -414,9 +441,13 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}{{id_1}}",
+              "raw": "{{baseUrl}}/posts/1",
               "host": [
-                "{{baseUrl}}{{id_1}}"
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "1"
               ]
             },
             "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -467,9 +498,12 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}{{users}}",
+              "raw": "{{baseUrl}}users/10",
               "host": [
-                "{{baseUrl}}{{users}}"
+                "{{baseUrl}}users"
+              ],
+              "path": [
+                "10"
               ]
             },
             "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."

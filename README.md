@@ -87,11 +87,9 @@ Incluem validações automáticas por meio de scripts na aba Tests.
 - PATH /posts/{id}
 
 > Cenários negativos:
-- GET /posts
-- POST /posts
 - GET /posts/{id}
-- GET /users{id}
 - PATH /posts/{id}
+- GET /users{id}
 
 > Validações realizadas:
 - Status code da resposta
@@ -129,7 +127,7 @@ Resultado esperado:
 - A API JSONPlaceholder não salva dados permanentemente
 
 Endpoint: GET /posts
-- Status code: 200
+- Status code: 201
 
 ## Cenário 3 – Buscar post por id válido
 - Confirma que o post correto é retornado
