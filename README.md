@@ -118,6 +118,12 @@ link: https://github.com/douglastavares2702/jsonplaceholder-api-tests/blob/main/
 
 target/surefire-reports/
 
+## Integração Contínua (CI)
+
+O projeto possui integração contínua configurada. Todos os testes automatizados são executados automaticamente 
+em cada commit para garantir que a API esteja funcionando corretamente
+link: https://github.com/douglastavares2702/jsonplaceholder-api-tests/actions
+
 ## Suporte
 
 - Linkedin: https://www.linkedin.com/in/douglas-tavares-02127567/ 
