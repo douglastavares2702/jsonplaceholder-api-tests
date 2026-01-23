@@ -1,8 +1,8 @@
 # Automação de API - JSONPlaceholder
 
-Repositório com automação de testes de API usando o framework: RestAssured e JUnit
+Repositório com automação de testes de API usando o framework: RestAssured e JUnit.
 
-> Testando e validando serviços REST em Java com 
+> Testando e validando serviços REST em Java utilizando a APO JSONPlaceholder. 
 > https://jsonplaceholder.typicode.com/
 
 ---
