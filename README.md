@@ -110,85 +110,9 @@ newman run JSONPlaceholder_API.postman_collection.json \
 
 ## Testes Manuais
 
-Os principais cenários de teste foram modelados de forma manual com o objetivo de permitir que qualquer pessoa consiga reproduzi-los, mesmo sem automação.
-
-## Testes Positivos:
-
-## Cenário 1 – Listar posts
-- Valida quantidade de posts e presença de campos obrigatórios
-
-Endpoint: GET /posts  
-Resultado esperado:
-- Status code: 200
-- Retorno: 100 registros
-- Campos: userId, id, title, body
-
-## Cenário 2 – Criar posts
-- A API JSONPlaceholder não salva dados permanentemente
-
-Endpoint: GET /posts
-- Status code: 201
-
-## Cenário 3 – Buscar post por id válido
-- Confirma que o post correto é retornado
-- Verifica que campos obrigatórios estão presentes e não nulos
-
-Endpoint: GET /posts/1  
-Resultado esperado:
-- Status code 200
-- Campo id igual a 1
-- Campos obrigatórios não nulos
-
-## Cenário 4 – Buscar usuário por ID válido
-- Testa campos individuais e o contrato JSON completo do usuário
-- Garantia de consistência da estrutura da resposta
-
-Endpoint: GET /users/10  
-Resultado esperado:
-- Status code 200
-- Campo id igual a 10
-- Campo "username" = "Moriah.Stanton"
-- Campos obrigatórios: id, name, username, email, address, phone, website, company
-- Estrutura do JSON conforme contrato/schema definido
-
-## Cenário 5 – Editar post existente
-- O endpoint PATCH/PUT retorna o objeto atualizado, mas não altera os dados permanentemente
-
-Endpoint: PATH /posts/100
-Resultado esperado:
-- Status code 200
-- ID igual a 100
-- Retorno: objeto com o title atualizado
-
-## Testes Negativos:
-
-## Cenário 1 – Buscar posts inexistentes
-- Retorna 404 e objeto vazio, mostrando tratamento correto de recurso não existente
-
-Endpoint: GET /posts/150  
-Resultado esperado:
-- Status code: 404
-- Retorno: 100 registros
-- Campos: Não deverá retornar
-
-## Cenário 2 – Campo não deveria existir
-- Para campos inventados (ex: categoria), o teste passa, garantindo que não há atributos inesperados
-- Para campos obrigatórios (ex: title), o teste falha intencionalmente, demonstrando que não se pode negar campos existentes
-
-Endpoint: GET /posts/1 
-Resultado esperado:
-- Status code: 200
-- Campo categoria não existe
-- Campo title existe
-
-## Cenário 3 – E-mail incorreto de usuário existente
-- Valida que valores incorretos não passam despercebidos
-
-Endpoint: GET /users/{id}
-Resultado esperado:
-- Status code: 200
-- Campo username igual a "Moriah.Stanton"
-- Campo email não igual a "datg2702@hotmail.com"
+Os testes manuais estão disponíveis em PDF no repositório:
+src\doc\testes_api_gherkin.pdf
+link: https://github.com/douglastavares2702/jsonplaceholder-api-tests/blob/main/src/doc/testes_api_gherkin.pdf
 
 ## Relatórios de Teste
 
